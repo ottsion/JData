@@ -1,7 +1,8 @@
 
 
 
-## load_data.py##
+## load_data.py ##
+
 - 装载三月四月份数据，保存在'data/month_34_all_data.csv'位置：
 
          load_data(month_3_data_path, month_3_extra_data_path, month_4_data_path,month_34_all_data_path)
@@ -13,7 +14,6 @@
 - 删除异常用户，将所有行为数据保存至'data/all_dataSet.csv'
 
          clean_unNormal_data(all_dataSet_path, month_34_all_data_path)
-
 
 
 ----------
@@ -35,7 +35,6 @@
     切分方法函数：
 
     	cut_data_as_time(dataSet_path, new_dataSet_path , begin_day, end_day)
-
 
 
 ----------
@@ -76,7 +75,9 @@
 
 
 ----------
+
 ## combine_feature_dataSet.py ##
+
 之前的特征位置
 
     train_one_train_feature_path = 'data/train_one_train_feature.csv'
@@ -107,10 +108,10 @@
         combine_neg_and_posi(negative_data_path, positive_data_path, train_dataSet_path)
 
 
-
 ----------
 
 ## ceshiyanzheng.py ##
+
 1. 用来计算AB值，输入为（user_id,sku_id）格式
 
         evl(two_real_path, two_answer_path)
@@ -124,16 +125,19 @@
         - answer_path    去除before_answer_path中重复的数据，为最终结果
 
 ----------
+
 ##　load_data.py ##
+
 一般来说此时数据集准备就绪，但是按题意所有预测商品均在Ｐ中，我们需要删除一部分数据集中不属于这些商品的数据
 
     　clean_data(dataSet_path, after_dataSet_path)
     　-　dataSet_path　输入为　特征数据集，用来训练或者预测的特征集，未清洗
     　-　 after_dataSet_path　　　合理的，将直接用于ｍｏｄｅｌ的特征数据集
 
-
 ----------
+
 ##　main_test.py ##
+
 这里选用ＲＦ测试：
 
     clf = model_rf.classify_user_item(train_feature_dataSet, test_feature_dataSet, 
